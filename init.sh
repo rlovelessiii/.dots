@@ -47,7 +47,7 @@ function link {
 }
 
 # @Params: $1 = Parent directory to start linking, $2 = Root base path for syslink
-function parent_dir {
+function link_dir {
     cd $1
     echo "Starting $1 directory..."
     # Allow '*' to include '.' files
@@ -59,12 +59,12 @@ function parent_dir {
     cd ..
 }
 
-# Get current directory and operating system
+# Get current operating system
 OS=$(uname)
 
 if [[ $OS == "Linux" ]]; then
     echo "Linking..."
-    parent_dir ./home ~/.testlinks
+    link_dir ./home ~/.testlinks
     echo "Linking Complete!"
 elif [[ $OS == "Darwin" ]]; then
     echo "TODO"
