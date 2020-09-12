@@ -15,6 +15,19 @@ function link {
     if [[ -f $1 ]]; then
         # $(pwd) returns the current directory, where arg $1 is concatenated to provide the absolute file path,
         #   and arg $2 provides the config directory for the link to be created
+        if [[ -f $2/$1 ]]; then
+            # Check to see if found file is currently a syslink
+            if ! [[ -L $2/$1 ]]; then
+                if ! [[ -d ~/.testlinks/.backups ]]; then
+                    mkdir ~/.testlinks/.backups
+                fi
+                if ! [[ -d ~/.testlinks/.backups/.dots ]]; then
+                    mkdir ~/.testlinks/.backups/.dots
+                fi
+                echo "Creating backup for $2/$1"
+                mv $2/$1 ~/.testlinks/.backups/.dots/$1
+            fi
+        fi
         echo "Creating symlink for $2/$1..."
         ln -sf $(pwd)/$1 $2/$1
     elif [[ -d $1 ]]; then
@@ -36,9 +49,13 @@ function link {
 # @Params: $1 = Parent directory to start linking, $2 = Root base path for syslink
 function parent_dir {
     cd $1
+    echo "Starting $1 directory..."
+    # Allow '*' to include '.' files
+    shopt -s dotglob
     for child in *; do
         link $child $2
     done
+    echo "...$1 directory complete!"
     cd ..
 }
 
@@ -46,12 +63,8 @@ function parent_dir {
 OS=$(uname)
 
 if [[ $OS == "Linux" ]]; then
-    # Allow '*' to include '.' files
-    shopt -s dotglob
     echo "Linking..."
-    echo "Starting /home directory..."
     parent_dir ./home ~/.testlinks
-    echo ".../home directory complete!"
     echo "Linking Complete!"
 elif [[ $OS == "Darwin" ]]; then
     echo "TODO"
