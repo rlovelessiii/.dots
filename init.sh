@@ -4,9 +4,6 @@
 # author: RLovelessIII
 # description: Designed to create Symbolic Links for Unix '.' configuration files
 
-# Globals
-BASE_PATHS=(~/.testlinks /etc)
-
 # @Params: $1 = Current File/Dir Name $2 = Path to symbolic link
 # Recursive function to evaluate the contents of the given directory.
 # File vs Directory
@@ -18,14 +15,14 @@ function link {
         if [[ -f $2/$1 ]]; then
             # Check to see if found file is currently a syslink
             if ! [[ -L $2/$1 ]]; then
-                if ! [[ -d ~/.testlinks/.backups ]]; then
-                    mkdir ~/.testlinks/.backups
+                if ! [[ -d ~/.backups ]]; then
+                    mkdir ~/.backups
                 fi
-                if ! [[ -d ~/.testlinks/.backups/.dots ]]; then
-                    mkdir ~/.testlinks/.backups/.dots
+                if ! [[ -d ~/.backups/.dots ]]; then
+                    mkdir ~/.backups/.dots
                 fi
                 echo "Creating backup for $2/$1"
-                mv $2/$1 ~/.testlinks/.backups/.dots/$1
+                mv $2/$1 ~/.backups/.dots/$1
             fi
         fi
         echo "Creating symlink for $2/$1..."
@@ -59,13 +56,17 @@ function link_dir {
     cd ..
 }
 
-# Get current operating system
+# Get current operating system and current directory
 OS=$(uname)
+DIR=$(dirname "$0")
 
 if [[ $OS == "Linux" ]]; then
+
+    # Symlink dot files
     echo "Linking..."
-    link_dir ./home ~/.testlinks
+    link_dir $DIR/home ~
     echo "Linking Complete!"
+
 elif [[ $OS == "Darwin" ]]; then
     echo "TODO"
 fi
