@@ -57,7 +57,6 @@ function link_dir {
 }
 
 function install_packages {
-
     echo "Updating databases..."
     yay -Syyu && echo "Done! Databases updated"
     echo "Installing packages..."
@@ -67,7 +66,7 @@ function install_packages {
         chromium \
         # KVM
         barrier \
-        # Bluetooth
+        # Bluetooth Manager
         blueman \
         # Text Editors
         neovim \
@@ -88,7 +87,13 @@ function install_packages {
         intellij-idea-ultimate-edition \
         webstorm \
         pycharm-professional
+}
 
+function install_bash_it {
+    echo "Installing Bash-It..."
+    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it && \
+        ~/.bash_it/install.sh --no-modify-config && \
+        echo "Done! Bash-It Installed"
 }
 
 # Get current operating system and current directory
