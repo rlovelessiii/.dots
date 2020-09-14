@@ -15,9 +15,11 @@ function link {
         if [[ -f $2/$1 ]]; then
             # Check to see if found file is currently a syslink
             if ! [[ -L $2/$1 ]]; then
+                # Create backup directory if needed
                 if ! [[ -d ~/.backups ]]; then
                     mkdir ~/.backups
                 fi
+                # Create backup directory for .dots if needed
                 if ! [[ -d ~/.backups/.dots ]]; then
                     mkdir ~/.backups/.dots
                 fi
@@ -46,7 +48,7 @@ function link {
 # @Params: $1 = Parent directory to start linking, $2 = Root base path for syslink
 function link_dir {
     cd $1
-    echo "Starting $1 directory..."
+    echo "Linking $1 directory..."
     # Allow '*' to include '.' files
     shopt -s dotglob
     for child in *; do
@@ -101,12 +103,12 @@ OS=$(uname)
 DIR=$(dirname "$0")
 
 if [[ $OS == "Linux" ]]; then
-
+    # Install packages
+    install_packages
+    # Install Bash-It
+    install_bash_it
     # Symlink dot files
-    echo "Linking..."
     link_dir $DIR/home ~
-    echo "Linking Complete!"
-
 elif [[ $OS == "Darwin" ]]; then
     echo "TODO"
 fi
