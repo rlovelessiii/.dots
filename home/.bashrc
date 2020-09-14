@@ -41,12 +41,12 @@ esac
 
 # Path to the bash it configuration
 export BASH_IT="/home/richard/.bash_it"
-export BASH_IT_CUSTOM="/home/richard/.dotfiles/cli-profiles/bashit_scripts/"
+#export BASH_IT_CUSTOM="/home/richard/.dotfiles/cli-profiles/bashit_scripts/"
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
 # location /.bash_it/themes/
-export BASH_IT_THEME='/home/richard/.dotfiles/cli-profiles/bashit_scripts/my.theme.bash'
+export BASH_IT_THEME='rlovelessiii'
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
