@@ -56,6 +56,41 @@ function link_dir {
     cd ..
 }
 
+function install_packages {
+
+    echo "Updating databases..."
+    yay -Syyu && echo "Done! Databases updated"
+    echo "Installing packages..."
+    yay -S \
+        # Browsers
+        firefox-developer-edition \
+        chromium \
+        # KVM
+        barrier \
+        # Bluetooth
+        blueman \
+        # Text Editors
+        neovim \
+        typora \
+        # Sync Google Drive
+        insync \
+        # Compositor (kiwase-blur & rounded-corners)
+        picom-ibhagwan-git \
+        # Cursor
+        bibata-cursor-theme \
+        # Status-bar
+        polybar \
+        # Color-scheme generator
+        python-pywal \
+        # Widget & Icon theme generator
+        themix-full-git \
+        # IDE's
+        intellij-idea-ultimate-edition \
+        webstorm \
+        pycharm-professional
+
+}
+
 # Get current operating system and current directory
 OS=$(uname)
 DIR=$(dirname "$0")
