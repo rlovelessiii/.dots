@@ -130,13 +130,13 @@ function ssh_setup {
 
 if [[ $(uname) == "Linux" ]]; then
     # Create needed directories
-    create_dirs
+    create_dirs && \
     # Install packages from Manjaro Official & AUR
-    install_packages
+    install_packages && \
     # Install Bash-It
-    install_bash_it
+    install_bash_it && \
     # Symlink dot files
-    link_dir $(pwd)/home ~
+    link_dir $(pwd)/home ~ && \
     # Setup SSH keys
     ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
