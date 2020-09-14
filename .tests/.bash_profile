@@ -1,1 +1,0 @@
-/home/richard/.dots/home/.bash_profile

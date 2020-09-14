@@ -1,1 +1,0 @@
-/home/richard/.dots/home/.bash_it/theme/rlovelessiii/rlovelessiii.theme.bash
