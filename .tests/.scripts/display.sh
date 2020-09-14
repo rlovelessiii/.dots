@@ -1,0 +1,1 @@
+/home/richard/.dots/home/.scripts/display.sh

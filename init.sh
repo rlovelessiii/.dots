@@ -15,14 +15,6 @@ function link {
         if [[ -f $2/$1 ]]; then
             # Check to see if found file is currently a syslink
             if ! [[ -L $2/$1 ]]; then
-                # Create backup directory if needed
-                if ! [[ -d ~/.backups ]]; then
-                    mkdir ~/.backups
-                fi
-                # Create backup directory for .dots if needed
-                if ! [[ -d ~/.backups/.dots ]]; then
-                    mkdir ~/.backups/.dots
-                fi
                 echo "Creating backup for $2/$1"
                 mv $2/$1 ~/.backups/.dots/$1
             fi
@@ -31,11 +23,7 @@ function link {
         ln -sf $(pwd)/$1 $2/$1
     elif [[ -d $1 ]]; then
         cd $1
-        # Check if current directory already exists, if not, create it
-        if ! [[ -d $2/$1 ]]; then
-            echo "Creating directory $2/$1..."
-            mkdir $2/$1
-        fi
+        check_path $2/$1
         # Iterate over the conents of the directory to call itself,
         #   using the current ${ITEM} for arg $1 and concatenating the file path for arg $2
         for content in *; do
@@ -59,10 +47,8 @@ function link_dir {
 }
 
 function install_packages {
-    echo "Updating databases..."
-    yay -Syyu && echo "Done! Databases updated"
     echo "Installing packages..."
-    yay -S \
+    yay -Syyu \
         # Browsers
         firefox-developer-edition \
         chromium \
@@ -70,6 +56,8 @@ function install_packages {
         barrier \
         # Bluetooth Manager
         blueman \
+        # Clipboard
+        xclip \
         # Text Editors
         neovim \
         typora \
@@ -98,17 +86,53 @@ function install_bash_it {
         echo "Done! Bash-It Installed"
 }
 
-# Get current operating system and current directory
-OS=$(uname)
-DIR=$(dirname "$0")
+# @Params: $1 = full path to directory to check, must prefix with tilde '~' or forward-slash '/'
+function check_path {
+    IFS='/' read -r -a DIRS <<< $1
+    # Remove null first element
+    DIRS=("${DIRS[@]:1}")
+    DIR_PATH=""
+    for DIR in "${DIRS[@]}"; do
+        DIR_PATH=$DIR_PATH/$DIR
+        if ! [[ -d $DIR_PATH ]]; then
+            echo "Creating directory $DIR_PATH"
+            mkdir $DIR_PATH
+        fi
+    done
+    
+    unset DIRS DIR_PATH
+}
 
-if [[ $OS == "Linux" ]]; then
-    # Install packages
-    install_packages
+function create_dirs {
+    DIRS=( \
+        # Backup for dots
+        ~/.backups/dots \
+        # VIM directories
+        ~/.vim/.backup \
+        ~/.vim/.swp \
+        ~/.vim/.undo \
+    )
+    for DIR in "${DIRS[@]}"; do
+        check_path $DIR
+    done
+
+    unset DIRS
+}
+
+function ssh_setup {
+    echo "Configuring SSH..."
+    ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f ~/.ssh/id_rsa_github -N ""
+}
+
+if [[ $(uname) == "Linux" ]]; then
+    # Create needed directories
+    #create_dirs
+    # Install packages from Manjaro Official & AUR
+    #install_packages
     # Install Bash-It
-    install_bash_it
+    #install_bash_it
     # Symlink dot files
-    link_dir $DIR/home ~
-elif [[ $OS == "Darwin" ]]; then
+    link_dir $(pwd)/home ~/.dots/.tests
+elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
 fi
