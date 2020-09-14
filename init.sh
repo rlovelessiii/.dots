@@ -121,7 +121,9 @@ function create_dirs {
 
 function ssh_setup {
     echo "Configuring SSH..."
-    ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f ~/.ssh/id_rsa_github -N ""
+    ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f ~/.ssh/id_rsa_github -N "" && \
+        xclip -sel clip < ~/.ssh/id_rsa_github
+    echo "Github ssh-key has been copied to the clipboard..."
 }
 
 if [[ $(uname) == "Linux" ]]; then
