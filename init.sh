@@ -86,7 +86,7 @@ function install_bash_it {
         echo "Done! Bash-It Installed"
 }
 
-# @Params: $1 = full path to directory to check, must prefix with tilde '~' or forward-slash '/'
+# @Params: $1 = full path to directory to check, must prefix with a forward-slash '/'
 function check_path {
     IFS='/' read -r -a DIRS <<< $1
     # Remove null first element
@@ -124,17 +124,21 @@ function ssh_setup {
     ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f ~/.ssh/id_rsa_github -N "" && \
         xclip -sel clip < ~/.ssh/id_rsa_github
     echo "Github ssh-key has been copied to the clipboard..."
+    echo "Opening https://github.com/login"
+    $BROWSER --new-window https://github.com/login & disown
 }
 
 if [[ $(uname) == "Linux" ]]; then
     # Create needed directories
-    #create_dirs
+    create_dirs
     # Install packages from Manjaro Official & AUR
-    #install_packages
+    install_packages
     # Install Bash-It
-    #install_bash_it
+    install_bash_it
     # Symlink dot files
-    link_dir $(pwd)/home ~/.dots/.tests
+    link_dir $(pwd)/home ~
+    # Setup SSH keys
+    ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
 fi
