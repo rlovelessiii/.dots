@@ -62,9 +62,9 @@ function install_packages {
         polybar \
         python-pywal \
         themix-full-git \
-        intellij-idea-ultimate-edition \
-        webstorm \
-        pycharm-professional
+        #intellij-idea-ultimate-edition \
+        #webstorm \
+        #pycharm-professional
 }
 
 function install_bash_it {
@@ -119,7 +119,7 @@ if [[ $(uname) == "Linux" ]]; then
     install_packages && \
     install_bash_it && \
     link_dir $(dirname "$0")/home ~ && \
-    ssh_setup
+    #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
 fi
