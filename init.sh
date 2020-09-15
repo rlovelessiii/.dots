@@ -49,31 +49,19 @@ function link_dir {
 function install_packages {
     echo "Installing packages..."
     yay -Syyu \
-        # Browsers
         firefox-developer-edition \
         chromium \
-        # KVM
         barrier \
-        # Bluetooth Manager
         blueman \
-        # Clipboard
         xclip \
-        # Text Editors
         neovim \
         typora \
-        # Sync Google Drive
         insync \
-        # Compositor (kiwase-blur & rounded-corners)
         picom-ibhagwan-git \
-        # Cursor
         bibata-cursor-theme \
-        # Status-bar
         polybar \
-        # Color-scheme generator
         python-pywal \
-        # Widget & Icon theme generator
         themix-full-git \
-        # IDE's
         intellij-idea-ultimate-edition \
         webstorm \
         pycharm-professional
@@ -105,9 +93,7 @@ function check_path {
 
 function create_dirs {
     DIRS=( \
-        # Backup for dots
         ~/.backups/dots \
-        # VIM directories
         ~/.vim/.backup \
         ~/.vim/.swp \
         ~/.vim/.undo \
@@ -129,15 +115,10 @@ function ssh_setup {
 }
 
 if [[ $(uname) == "Linux" ]]; then
-    # Create needed directories
-    create_dirs && \
-    # Install packages from Manjaro Official & AUR
+    create_dirs && \ 
     install_packages && \
-    # Install Bash-It
     install_bash_it && \
-    # Symlink dot files
-    link_dir $(pwd)/home ~ && \
-    # Setup SSH keys
+    link_dir $(dirname "$0")/home ~ && \
     ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
