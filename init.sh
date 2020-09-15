@@ -61,7 +61,7 @@ function install_packages {
         bibata-cursor-theme \
         polybar \
         python-pywal \
-        themix-full-git \
+        themix-full-git #\
         #intellij-idea-ultimate-edition \
         #webstorm \
         #pycharm-professional
@@ -118,7 +118,7 @@ if [[ $(uname) == "Linux" ]]; then
     create_dirs && \ 
     install_packages && \
     install_bash_it && \
-    link_dir $(dirname "$0")/home ~ && \
+    link_dir $(dirname "$0")/home ~ #&& \
     #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
