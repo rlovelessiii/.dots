@@ -116,8 +116,8 @@ function ssh_setup {
 
 if [[ $(uname) == "Linux" ]]; then
     create_dirs && \ 
-    install_packages && \
     install_bash_it && \
+    install_packages && \
     link_dir $(dirname "$0")/home ~ #&& \
     #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
