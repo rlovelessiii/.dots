@@ -20,7 +20,7 @@ function link {
             fi
         fi
         echo "Creating symlink for $2/$1..."
-        ln -sf $(pwd)/$1 $2/$1
+        ln -s $(pwd)/$1 $2/$1
     elif [[ -d $1 ]]; then
         cd $1
         check_path $2/$1
@@ -93,7 +93,7 @@ function check_path {
 
 function create_dirs {
     DIRS=( \
-        ~/.backups/dots \
+        ~/.backups/.dots \
         ~/.vim/.backup \
         ~/.vim/.swp \
         ~/.vim/.undo \
