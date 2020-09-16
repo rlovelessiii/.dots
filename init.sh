@@ -115,7 +115,7 @@ function ssh_setup {
 }
 
 if [[ $(uname) == "Linux" ]]; then
-    create_dirs && \ 
+    create_dirs && \
     install_bash_it && \
     install_packages && \
     link_dir $(dirname "$0")/home ~ #&& \
