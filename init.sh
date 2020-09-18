@@ -50,18 +50,21 @@ function install_packages {
     echo "Installing packages..."
     yay -Syyu \
         firefox-developer-edition \
-        chromium \
         barrier \
         blueman \
         xclip \
         neovim \
-        typora \
-        insync \
         picom-ibhagwan-git \
+        nerd-fonts-cascadia-code \
+        otf-font-awesome \
+        otf-san-francisco \
         bibata-cursor-theme \
         polybar \
-        python-pywal \
-        themix-full-git #\
+        python-pywal #\
+        #themix-full-git \
+        #typora \
+        #insync \
+        #chromium \
         #intellij-idea-ultimate-edition \
         #webstorm \
         #pycharm-professional
