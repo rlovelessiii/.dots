@@ -61,9 +61,9 @@ function install_packages {
         bibata-cursor-theme \
         polybar \
         python-pywal \
-        inkscape \
-        themix-theme-materia-git \
-        themix-icons-papirus-git \
+        inkscape #\
+        #themix-theme-materia-git \
+        #themix-icons-papirus-git \
         #typora \
         #insync \
         #chromium \
