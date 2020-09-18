@@ -76,6 +76,7 @@ function install_bash_it {
     echo "Installing Bash-It..."
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it && \
         ~/.bash_it/install.sh --no-modify-config && \
+        . ~/.bashrc && \
         bash-it enable plugin battery && \
         echo "Done! Bash-It Installed"
 }
@@ -122,9 +123,9 @@ function ssh_setup {
 
 if [[ $(uname) == "Linux" ]]; then
     create_dirs && \
-    install_bash_it && \
     install_packages && \
     link_dir $(dirname "$0")/home ~ && \
+    install_bash_it && \
     wal -a 70 -i /usr/share/backgrounds/i3_default_background.jpg
     #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
