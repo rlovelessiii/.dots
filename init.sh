@@ -60,7 +60,8 @@ function install_packages {
         otf-san-francisco \
         bibata-cursor-theme \
         polybar \
-        python-pywal #\
+        python-pywal \
+        inkscape #\
         #themix-full-git \
         #typora \
         #insync \
