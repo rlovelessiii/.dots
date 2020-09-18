@@ -61,8 +61,9 @@ function install_packages {
         bibata-cursor-theme \
         polybar \
         python-pywal \
-        inkscape #\
-        #themix-full-git \
+        inkscape \
+        themix-theme-materia-git \
+        themix-icons-papirus-git \
         #typora \
         #insync \
         #chromium \
@@ -123,7 +124,8 @@ if [[ $(uname) == "Linux" ]]; then
     create_dirs && \
     install_bash_it && \
     install_packages && \
-    link_dir $(dirname "$0")/home ~ #&& \
+    link_dir $(dirname "$0")/home ~ && \
+    wal -a 70 -i /usr/share/backgrounds/i3_default_background.jpg
     #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
