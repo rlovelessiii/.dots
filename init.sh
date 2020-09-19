@@ -124,8 +124,8 @@ function ssh_setup {
 if [[ $(uname) == "Linux" ]]; then
     create_dirs && \
     install_packages && \
-    link_dir $(dirname "$0")/home ~ && \
     install_bash_it && \
+    link_dir $(dirname "$0")/home ~ && \
     wal -a 70 -i /usr/share/backgrounds/i3_default_background.jpg
     #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
