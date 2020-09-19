@@ -119,12 +119,16 @@ function ssh_setup {
     $BROWSER --new-window https://github.com/login & disown
 }
 
+function finalize {
+    wal -a 70 -i /usr/share/backgrounds/i3_default_background.jpg
+
+}
+
 if [[ $(uname) == "Linux" ]]; then
     create_dirs && \
     install_packages && \
     install_bash_it && \
     link_dir $(dirname "$0")/home ~ && \
-    wal -a 70 -i /usr/share/backgrounds/i3_default_background.jpg
     #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
