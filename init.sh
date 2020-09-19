@@ -75,7 +75,7 @@ function install_packages {
 function install_bash_it {
     echo "Installing Bash-It..."
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it && \
-        ~/.bash_it/install.sh --no-modify-config && \
+        ~/.bash_it/install.sh --silent && \
         . ~/.bashrc && \
         bash-it enable plugin battery && \
         echo "Done! Bash-It Installed"
