@@ -60,6 +60,8 @@ function install_packages {
         otf-font-awesome \
         otf-san-francisco \
         bibata-cursor-theme \
+        neofetch \
+        rofi \
         polybar \
         python-pywal \
         inkscape #\
