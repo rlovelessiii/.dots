@@ -49,6 +49,7 @@ function link_dir {
 function install_packages {
     echo "Installing packages..."
     yay -Syyu \
+        timeshift \
         firefox-developer-edition \
         barrier \
         blueman \
@@ -121,14 +122,25 @@ function ssh_setup {
 
 function finalize {
     wal -a 70 -i /usr/share/backgrounds/i3_default_background.jpg
+    terminal -e 'bash-it enable plugin battery'
+    i3-msg restart
+}
 
+function backup {
+    if ! [[ $(yay -Q timeshift) ]]; then
+        yay -Syyu timeshift
+    fi
+    sudo timeshift --create --comments "$1"
 }
 
 if [[ $(uname) == "Linux" ]]; then
+    backup "Pre-Setup" && \
     create_dirs && \
     install_packages && \
     install_bash_it && \
     link_dir $(dirname "$0")/home ~ && \
+    finalize && \
+    backup "Post-Setup"
     #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
