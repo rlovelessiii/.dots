@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # ~/.dots/dotlink.sh
 # author: RLovelessIII
 # description: Designed to create Symbolic Links for Unix '.' configuration files
@@ -49,7 +48,6 @@ function link_dir {
 function install_packages {
     echo "Installing packages..."
     yay -Syyu \
-        timeshift \
         firefox-developer-edition \
         barrier \
         blueman \
@@ -129,21 +127,12 @@ function finalize {
     i3-msg restart
 }
 
-function backup {
-    if ! [[ $(yay -Q timeshift) ]]; then
-        yay -Syyu timeshift
-    fi
-    sudo timeshift --create --comments "$1"
-}
-
 if [[ $(uname) == "Linux" ]]; then
-    backup "Pre-Setup" && \
     create_dirs && \
     install_packages && \
     install_bash_it && \
     link_dir $(dirname "$0")/home ~ && \
     finalize && \
-    backup "Post-Setup"
     #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
