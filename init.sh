@@ -123,8 +123,6 @@ function ssh_setup {
 
 function finalize {
     wal -a 70 -i /usr/share/backgrounds/i3_default_background.jpg
-    terminal -e 'bash-it enable plugin battery'
-    i3-msg restart
 }
 
 if [[ $(uname) == "Linux" ]]; then
