@@ -57,6 +57,7 @@ function install_packages {
         neovim \
         picom-ibhagwan-git \
         nerd-fonts-cascadia-code \
+        nerd-fonts-source-code-pro \
         otf-font-awesome \
         otf-san-francisco \
         bibata-cursor-theme \
