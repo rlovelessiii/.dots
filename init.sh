@@ -131,6 +131,7 @@ if [[ $(uname) == "Linux" ]]; then
     install_bash_it && \
     link_dir $(dirname "$0")/home ~ && \
     finalize && \
+    reboot
     #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
