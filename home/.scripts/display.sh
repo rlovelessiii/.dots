@@ -20,11 +20,15 @@ elif [[ $(hostname) == "knight" ]]; then
         HEIGHT="1440"
         RATE="120"
     fi
+
+    CMD1="xrandr --output $OUTPUT --mode ${WIDTH}x${HEIGHT} --rate $RATE --pos 0x464"
+
     if [[ $2 == "external" ]]; then
-        xrandr --output DP-2 --mode 2560x1440 --rate 165 --pos ${WIDTH}x0 --rotate right
+        CMD2="xrandr --output DP-2 --mode 2560x1440 --rate 165 --pos ${WIDTH}x0 --rotate right"
     else
-        xrandr --output DP-2 --off
+        CMD2="xrandr --output DP-2 --off"
     fi
-    xrandr --output $OUTPUT --mode ${WIDTH}x${HEIGHT} --rate $RATE --pos 0x464
+
+    $CMD1 && $CMD2
 fi
 
