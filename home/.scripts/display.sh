@@ -14,7 +14,7 @@ elif [[ $(hostname) == "knight" ]]; then
         RATE="60"
     elif [[ $1 == "21:9" ]]; then
         WIDTH="3360"
-        RATE="120"
+        RATE="60"
     elif [[ $1 == "16:9" ]]; then
         WIDTH="2560"
         RATE="120"
