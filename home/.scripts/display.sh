@@ -22,6 +22,8 @@ elif [[ $(hostname) == "knight" ]]; then
     fi
     if [[ $2 == "external" ]]; then
         xrandr --output DP-2 --mode 2560x1440 --rate 165 --pos ${WIDTH}x0 --rotate right
+    else
+        xrandr --ouput DP-2 --off
     fi
     xrandr --output $OUTPUT --mode ${WIDTH}x${HEIGHT} --rate $RATE --pos 0x464
 fi
