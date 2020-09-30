@@ -9,16 +9,16 @@ if [[ $(hostname) == "fox" ]]; then
         xrandr --output eDP1 --auto --output HDMI1 --off
     fi
 elif [[ $(hostname) == "knight" ]]; then
-    if [[ $1 == "32:9" ]]; then
+    if [[ $1 == "ultrawide" ]]; then
         WIDTH="5120"
         RATE="60"
-    elif [[ $1 == "21:9" ]]; then
+    elif [[ $1 == "superwide" ]]; then
         WIDTH="3360"
         RATE="60"
-    elif [[ $1 == "16:9" ]]; then
+    elif [[ $1 == "wide" ]]; then
         WIDTH="2560"
         RATE="120"
-    elif [[ $1 == "11:9" ]]; then
+    elif [[ $1 == "not-wide" ]]; then
         WIDTH="1760"
         RATE="120"
     fi
