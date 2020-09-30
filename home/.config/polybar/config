@@ -20,7 +20,7 @@
 ; Global Settings
 ;==============================================================
 [colors]
-background = ;${xrdb:color0}
+background = ${xrdb:color0}
 primary = ${xrdb:color1}
 secondary = ${xrdb:color2}
 tertiary = ${xrdb:color3}
@@ -169,7 +169,7 @@ padding-right = 3
 module-margin-left = 1
 module-margin-right = 1
 tray-position = right
-tray-background = #00000000
+tray-background = ${colors.background}
 tray-detached = false
 modules-left = alsa
 modules-center = xkeyboard
