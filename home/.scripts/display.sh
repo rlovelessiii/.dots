@@ -12,7 +12,7 @@ elif [[ $(hostname) == "knight" ]]; then
     WIDTH=('5120' '3360' '2560' '1760')
 
     for w in ${WIDTH[@]}; do
-        CMD='xrandr --output DP-1 --mode ${w}x1440 --pos 0x464'
+        CMD="xrandr --output DP-1 --mode ${w}x1440 --pos 0x464"
         if [[ $1 == "external" ]]; then
             CMD="${CMD} && xrandr --output DP-2 --mode 2560x1440 --pos ${w}x0 --rotate right"
         else
