@@ -13,7 +13,7 @@ elif [[ $(hostname) == "knight" ]]; then
 
     for w in ${WIDTH[@]}; do
         xrandr --output DP-1 --mode ${w}x1440 --pos 0x464 && \
-            xrandr --ouptput DP-2 --mode 2560x1440 --pos ${w}x0 --rotate right 
+            xrandr --output DP-2 --mode 2560x1440 --pos ${w}x0 --rotate right 
     done
 fi
 
