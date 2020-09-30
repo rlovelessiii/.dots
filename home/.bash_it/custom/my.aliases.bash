@@ -9,6 +9,7 @@ fi
 
 if [[ $(hostname) == "knight" ]]; then
     alias display='${HOME}/.scripts/display.sh'
+fi
 
 alias update-theme='${HOME}/.scripts/themeGen/launch.sh'
 alias vim=nvim
