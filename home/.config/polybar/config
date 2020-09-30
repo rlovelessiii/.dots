@@ -285,11 +285,10 @@ format = <label-state>
 index-sort = true
 wrapping-scroll = true
 strip-wsnumbers = true
-pin-workspaces = true
+pin-workspaces = false
 label-focused = %name%
 label-focused-foreground = ${colors.tertiary}
-label-visible = %name%
-label-visible-foreground = ${colors.primary}
+label-visible =
 label-unfocused =
 label-urgent =
 
@@ -300,7 +299,7 @@ format = <label-state>
 index-sort = true
 wrapping-scroll = true
 strip-wsnumbers = true
-pin-workspaces = true
+pin-workspaces = false
 label-focused = 
 label-focused-padding = 1
 label-focused-foreground = ${colors.accent}
@@ -312,7 +311,7 @@ label-urgent-padding = 1
 label-urgent-foreground = ${colors.alert}
 label-visible = 
 label-visible-padding = 1
-label-visible-foreground = ${colors.primary}
+label-visible-foreground = ${colors.secondary}
 
 ;==============================================================
 ; Top-Right Modules
