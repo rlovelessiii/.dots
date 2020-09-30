@@ -7,5 +7,8 @@ if [[ $(uname) == "Linux" ]]; then
   alias grep='grep --color=auto'
 fi
 
-alias update-theme="${HOME}/.scripts/themeGen/launch.sh"
+if [[ $(hostname) == "knight" ]]; then
+    alias display='${HOME}/.scripts/display.sh'
+
+alias update-theme='${HOME}/.scripts/themeGen/launch.sh'
 alias vim=nvim
