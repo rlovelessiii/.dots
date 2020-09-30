@@ -142,9 +142,9 @@ padding-left = 3
 padding-right = 3
 module-margin-left = 1
 module-margin-right = 1
-modules-left = wireless
-modules-center = upspeed downspeed
-modules-right = ethernet
+modules-left = wireless-1 wireless-2
+modules-center = upspeed-1 upspeed-2 downspeed-1 downspeed-2
+modules-right = ethernet-1 ethernet-2
 override-redirect = true
 
 ;==============================================================
@@ -361,9 +361,8 @@ menu-2-1-exec = menu-open-0
 ;==============================================================
 ; Bottom-Left Modules
 ;==============================================================
-[module/wireless]
+[settings/wireless]
 type = internal/network
-interface = wlp2s0
 interval = 3.0
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.contrast}
@@ -374,30 +373,51 @@ format-disconnected = "Disconnected"
 format-disconnected-prefix-foreground = ${colors.alert}
 format-disconnected-padding = 1
 
-;==============================================================
-[module/upspeed]
-type = internal/network
+[module/wireless-1]
+inherit = settings/wireless
 interface = wlp2s0
+
+[module/wireless-2]
+inherit = settings/wireless
+interface = wlp5s0
+
+;==============================================================
+[settings/upspeed]
+type = internal/network
 interval = 3.0
 accumulate-stats = true
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.secondary}
 label-connected = %upspeed%
 
-;==============================================================
-[module/downspeed]
-type = internal/network
+[module/upspeed-1]
+inherit = settings/upspeed
 interface = wlp2s0
+
+[module/upspeed-2]
+inherit = settings/upspeed
+interface = enp0s31f6
+
+;==============================================================
+[settings/downspeed]
+type = internal/network
 interval = 3.0
 accumulate-stats = true
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.tertiary}
 label-connected = %downspeed%
 
+[module/downspeed-1]
+inherit = settings/downspeed
+interface = wlp2s0
+
+[module/downspeed-2]
+inherit = settings/downspeed
+interface = enp0s31f6
+
 ;==============================================================
-[module/ethernet]
+[settings/ethernet]
 type = internal/network
-interface = enp1s0
 interval = 3.0
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.accent}
@@ -406,6 +426,14 @@ format-disconnected-prefix = " "
 format-disconnected = "Disconnected"
 format-disconnected-prefix-foreground = ${colors.alert}
 format-disconnected-padding = 1
+
+[module/ethernet-1]
+inherit = settings/ethernet
+interface = enp1s0
+
+[module/ethernet-2]
+inherit = settings/ethernet
+interface = enp0s31f6
 
 ;==============================================================
 ; Bottom-Right Modules
