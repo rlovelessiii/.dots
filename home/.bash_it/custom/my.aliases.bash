@@ -8,7 +8,7 @@ if [[ $(uname) == "Linux" ]]; then
 fi
 
 if [[ $(hostname) == "knight" ]]; then
-    alias display='${HOME}/.scripts/display.sh'
+    alias display-setup='${HOME}/.scripts/display.sh'
 fi
 
 alias update-theme='${HOME}/.scripts/themeGen/launch.sh'
