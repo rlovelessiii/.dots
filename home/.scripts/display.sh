@@ -9,7 +9,7 @@ if [[ $(hostname) == "fox" ]]; then
         xrandr --output eDP1 --auto --output HDMI1 --off
     fi
 elif [[ $(hostname) == "knight" ]]; then
-    WIDTH=('5120', '3360', '2560', '1760')
+    WIDTH=('5120' '3360' '2560' '1760')
 
     for w in ${WIDTH[@]}; do
         xrandr --output DP-1 --mode ${w}x1440 --pos 0x464 && \
