@@ -18,7 +18,7 @@ elif [[ $(hostname) == "knight" ]]; then
         else
             CMD="${CMD} && xrandr --output DP-2 --off"
         fi
-        CMD
+        $CMD
     done
 fi
 
