@@ -105,9 +105,6 @@ bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 ## Autostart applications                                                                     ##
 ################################################################################################
 
-# Displays
-exec --no-startup-id $HOME/.scripts/display.sh
-
 # Start-up applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
