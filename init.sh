@@ -50,7 +50,7 @@ function install_packages {
     yay -Syyu \
         firefox-developer-edition \
         barrier \
-        blueman \
+        insync \
         xclip \
         neovim \
         picom-ibhagwan-git \
@@ -67,7 +67,6 @@ function install_packages {
         #themix-theme-materia-git \
         #themix-icons-papirus-git \
         #typora \
-        #insync \
         #chromium \
         #intellij-idea-ultimate-edition \
         #webstorm \
