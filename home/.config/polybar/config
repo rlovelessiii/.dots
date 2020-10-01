@@ -169,7 +169,7 @@ padding-right = 3
 module-margin-left = 1
 module-margin-right = 1
 modules-left = alsa
-modules-right = xkeyboard
+modules-center = xkeyboard
 override-redirect = true
 
 ;==============================================================
