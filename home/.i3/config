@@ -85,9 +85,6 @@ bindsym $mod+F9 exec virtualbox
 
 # sound
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
 
 # screen-shots
 bindsym Print exec --no-startup-id i3-scrot
@@ -107,17 +104,10 @@ bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 
 # Start-up applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
-exec --no-startup-id blueman-applet
+exec --no-startup-id clipit --no-icon
 exec --no-startup-id insync start
 exec --no-startup-id barrier
-# exec --no-startup-id volumeicon
-# exec --no-startup-id conky -c ~/.cache/wal/conkyrc0
-# exec --no-startup-id conky -c ~/.cache/wal/conkyrc1
-# exec --no-startup-id xautolock -time 15 -locker blurlock
 
 # turn off system beep
 exec_always --no-startup-id xset b off
