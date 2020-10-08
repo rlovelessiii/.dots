@@ -113,11 +113,11 @@ exec --no-startup-id barrier
 exec_always --no-startup-id xset b off
 
 # Theming
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id wal -R
 exec_always --no-startup-id $HOME/.config/picom/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ################################################################################################
 ## Window Layout                                                                              ##
