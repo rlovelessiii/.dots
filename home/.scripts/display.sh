@@ -12,12 +12,18 @@ elif [[ $(hostname) == "knight" ]]; then
     WIDTHS=('5120' '3360' '2560' '1760')
 
     for width in ${WIDTHS[@]}; do
-        CMD="xrandr --output DP-1 --mode ${width}x1440 --pos 0x464"
-        if [[ $1 == "external" ]]; then
-            $CMD && xrandr --output DP-2 --mode 2560x1440 --pos ${width}x0 --rotate right
-        else
-            $CMD && xrandr --output DP-2 --off
+        if [[ xrandr -q | grep " ${width}x1440 " ]]
+            CMD="nvidia-settings --assign CurrentMetaMode=\"DP-2: ${width}x1440_120 +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
+            break;
         fi
     done
+
+    if [[ $1 == "external" ]]; then
+        CMD="${CMD}, DP-4: 2560x1440_120 +2560+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}\""
+    else
+        CMD="${CMD}\""
+    fi
+
+    CMD
 fi
 
