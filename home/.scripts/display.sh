@@ -22,7 +22,7 @@ elif [[ $(hostname) == "knight" ]]; then
     
     for data in ${MONITOR_DATA[@]}; do
         if [[ $data == "connected" ]]; then
-            MONTIORS_CONNECTED+=( ${PREV_DATA} )
+            MONITORS_CONNECTED+=( ${PREV_DATA} )
         elif [[ $data == ????x???? ]]; then
             RESOLUTION_SUPPORTED+=( ${data} )
         elif [[ $data =~ ^[0-9]{2,3}[\.] ]]; then
