@@ -24,7 +24,7 @@ elif [[ $(hostname) == "knight" ]]; then
         if [[ $data == "connected" ]]; then
             MONITORS_CONNECTED+=( ${PREV_DATA} )
         elif [[ $data == ????x???? ]]; then
-            RESOLUTION_SUPPORTED+=( ${data} )
+            RESOLUTIONS_SUPPORTED+=( ${data} )
         elif [[ $data =~ ^[0-9]{2,3}[\.] ]]; then
             RATES_SUPPORTED+=( ${data} )
         else
@@ -53,7 +53,7 @@ elif [[ $(hostname) == "knight" ]]; then
     HORIZONTAL_OFFSET+=( $(echo ${RESOLUTIONS_SUPPORTED[0]} | cut -d x -f 1) )
 
     for (( i=0; i<${#MONITORS_CONNECTED[@]}; i++ )); do
-        META="${META} ${MONITORS_CONNECTED[i]}: ${RESOLUTIONS_SUPPORTED[i]}_${HIGHEST_RATE} +${HORIZONTAL_OFFSET[i]}+${VERITCAL_OFFSET[i]} {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On},"
+        META="${META} ${MONITORS_CONNECTED[i]}: ${RESOLUTIONS_SUPPORTED[i]}_${HIGHEST_RATE} +${HORIZONTAL_OFFSET[i]}+${VERTICAL_OFFSET[i]} {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On},"
     done
 
     nvidia-settings --assign CurrentMetaMode="${META}"
