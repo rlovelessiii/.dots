@@ -56,6 +56,7 @@ elif [[ $(hostname) == "knight" ]]; then
         META="${META} ${MONITORS_CONNECTED[i]}: ${RESOLUTIONS_SUPPORTED[i]}_${HIGHEST_RATE} +${HORIZONTAL_OFFSET[i]}+${VERTICAL_OFFSET[i]} {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On},"
     done
 
+    echo ${META}
     nvidia-settings --assign CurrentMetaMode="${META}"
 
 fi
