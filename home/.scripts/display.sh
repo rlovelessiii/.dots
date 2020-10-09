@@ -35,7 +35,8 @@ elif [[ $(hostname) == "knight" ]]; then
     declare -A RATE
     
     for rate in ${RATES_SUPPORTED[@]}; do
-        HZ=$(echo ${rate} | cut -d . -f 1)
+        HZ=$(echo ${rate} | cut -d \* -f 1)
+        HZ=$(printf "%.0f\n" ${HZ})
         RATE[${HZ}]=$((RATE[${HZ}]+1))
         if [[ RATE[${HZ}] -gt 1 ]]; then
             COMMON_RATES+=( ${HZ} )
@@ -56,7 +57,6 @@ elif [[ $(hostname) == "knight" ]]; then
         META="${META} ${MONITORS_CONNECTED[i]}: ${RESOLUTIONS_SUPPORTED[i]}_${HIGHEST_RATE} +${HORIZONTAL_OFFSET[i]}+${VERTICAL_OFFSET[i]} {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On},"
     done
 
-    echo ${META}
     nvidia-settings --assign CurrentMetaMode="${META}"
 
 fi
