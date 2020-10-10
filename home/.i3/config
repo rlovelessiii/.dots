@@ -108,6 +108,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit --no-icon
 exec --no-startup-id insync start
 exec --no-startup-id barrier
+exec --no-startup-id $HOME/.scripts/display.sh
 
 # turn off system beep
 exec_always --no-startup-id xset b off
