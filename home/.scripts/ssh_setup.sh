@@ -9,7 +9,7 @@ if [[ ${ID} == "github" ]]; then
     ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f ~/.ssh/id_rsa_github -N "" && \
         eval "$(ssh-agent -s)" && \
         ssh-add ~/.ssh/id_rsa_github && \
-        xclip -sel clip < ~/.ssh/id_rsa_github
+        xclip -sel clip < ~/.ssh/id_rsa_github.pub
     echo "Github ssh-key has been copied to the clipboard..."
     echo "Opening https://github.com/login"
     $BROWSER --new-window https://github.com/login & disown
