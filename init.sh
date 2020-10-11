@@ -22,31 +22,16 @@ function install_bash_it {
         echo "Done! Bash-It Installed"
 }
 
-function check_path {
-    IFS='/' read -r -a DIRS <<< $1
-    # Remove null first element
-    DIRS=("${DIRS[@]:1}")
-    DIR_PATH=""
-    for DIR in "${DIRS[@]}"; do
-        DIR_PATH=$DIR_PATH/$DIR
-        if ! [[ -d $DIR_PATH ]]; then
-            echo "Creating directory $DIR_PATH"
-            mkdir $DIR_PATH
-        fi
-    done
-    
-    unset DIRS DIR_PATH
-}
-
 function create_dirs {
-    DIRS=( \
-        ~/.backups/.dots \
-        ~/.vim/.backup \
-        ~/.vim/.swp \
-        ~/.vim/.undo \
-    )
+    while read -r line; do
+        DIR=$(echo ${line} | cut -d \# -f 1)
+        if [[ ${DIR} ]]; then
+            echo ${DIR}
+            DIRS+=( ${DIR} )
+        fi
+    done < "$(dirname "$0")/dir-list.txt"
     for DIR in "${DIRS[@]}"; do
-        check_path $DIR
+        $(dirname "$0")/home/.scripts/mkpath.sh $DIR
     done
 
     unset DIRS
@@ -58,8 +43,8 @@ function finalize {
 
 if [[ $(uname) == "Linux" ]]; then
     #source $(dirname "$0")/home/.scripts/link.sh
-    #create_dirs && \
-    install_packages #&& \
+    create_dirs #&& \
+    #install_packages && \
     #install_bash_it && \
     #link_dir $(dirname "$0")/home ~ #&& \
     #finalize && \
