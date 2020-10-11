@@ -107,7 +107,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit --no-icon
 exec --no-startup-id insync start
-exec --no-startup-id barrier
+exec --no-startup-id $HOME/.config/barrier/launch.sh
 exec --no-startup-id $HOME/.scripts/display.sh
 
 # turn off system beep
