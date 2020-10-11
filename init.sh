@@ -111,15 +111,6 @@ function create_dirs {
     unset DIRS
 }
 
-function ssh_setup {
-    echo "Configuring SSH..."
-    ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f ~/.ssh/id_rsa_github -N "" && \
-        xclip -sel clip < ~/.ssh/id_rsa_github
-    echo "Github ssh-key has been copied to the clipboard..."
-    echo "Opening https://github.com/login"
-    $BROWSER --new-window https://github.com/login & disown
-}
-
 function finalize {
     wal -a 70 -i /usr/share/backgrounds/i3_default_background.jpg
 }
@@ -131,7 +122,6 @@ if [[ $(uname) == "Linux" ]]; then
     link_dir $(dirname "$0")/home ~ && \
     finalize && \
     reboot
-    #ssh_setup
 elif [[ $(uname) == "Darwin" ]]; then
     echo "TODO"
 fi
