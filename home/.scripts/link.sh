@@ -18,11 +18,13 @@ function link {
                 mv $2/$1 ~/.backups/.dots/$1
             fi
         fi
-        echo "Creating symlink for $2/$1..."
-        ln -s $(pwd)/$1 $2/$1
+        if ! [[ -L $2/$1 ]]; then
+            echo "Creating symlink for $2/$1..."
+            ln -s $(pwd)/$1 $2/$1
+        fi
     elif [[ -d $1 ]]; then
         cd $1
-        check_path $2/$1
+        $(dirname "$0")/mkpath.sh $2/$1
         # Iterate over the conents of the directory to call itself,
         #   using the current ${ITEM} for arg $1 and concatenating the file path for arg $2
         for content in *; do
@@ -33,15 +35,12 @@ function link {
 }
 
 # @Params: $1 = Parent directory to start linking, $2 = Root base path for syslink
-function link_dir {
-    cd $1
-    echo "Linking $1 directory..."
-    # Allow '*' to include '.' files
-    shopt -s dotglob
-    for child in *; do
-        link $child $2
-    done
-    echo "...$1 directory complete!"
-    cd ..
-}
+cd ${1}
+echo "Linking $1 directory..."
+# Allow '*' to include '.' files
+shopt -s dotglob
+for child in *; do
+    link $child $2
+done
+echo "...$1 directory complete!"
 
