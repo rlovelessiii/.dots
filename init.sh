@@ -10,7 +10,6 @@ function install_packages {
             PACKAGE_LIST+=" ${PACKAGE}"
         fi
     done < "$(dirname "$0")/package-list.txt"
-
     yay -Syyu ${PACKAGE_LIST}
 }
     
@@ -26,7 +25,6 @@ function create_dirs {
     while read -r line; do
         DIR=$(echo ${line} | cut -d \# -f 1)
         if [[ ${DIR} ]]; then
-            echo ${DIR}
             DIRS+=( ${DIR} )
         fi
     done < "$(dirname "$0")/dir-list.txt"
