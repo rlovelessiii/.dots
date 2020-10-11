@@ -41,7 +41,7 @@ if [[ $(uname) == "Linux" ]]; then
     create_dirs && \
     install_bash_it && \
     install_packages && \
-    $(dirname "$0")/home/.scripts/link.sh $(dirname "$0")/home ~ && \
+    $(dirname "$0")/home/.scripts/link.sh $(dirname "$0")/home ${HOME} && \
     finalize && \
     reboot
 elif [[ $(uname) == "Darwin" ]]; then
