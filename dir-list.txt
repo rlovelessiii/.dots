@@ -1,0 +1,4 @@
+$HOME/.backups/.dots
+$HOME/.vim/.backup
+$HOME/.vim/.swp
+$HOME/.vim/.undo
