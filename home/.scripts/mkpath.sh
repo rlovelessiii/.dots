@@ -15,10 +15,9 @@ for DIR in "${DIRS[@]}"; do
         continue
     fi
     DIR_PATH=${DIR_PATH}/${DIR}
-    echo ${DIR_PATH}
     if ! [[ -d ${DIR_PATH} ]]; then
         echo "Creating directory ${DIR_PATH}"
-        #mkdir ${DIR_PATH}
+        mkdir ${DIR_PATH}
     fi
 done
     
