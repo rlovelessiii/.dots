@@ -4,32 +4,16 @@
 # description: Designed to create Symbolic Links for Unix '.' configuration files
 
 function install_packages {
-    echo "Installing packages..."
-    yay -Syyu \
-        firefox-developer-edition \
-        barrier \
-        insync \
-        xclip \
-        neovim \
-        picom-ibhagwan-git \
-        nerd-fonts-cascadia-code \
-        nerd-fonts-source-code-pro \
-        otf-font-awesome \
-        otf-san-francisco \
-        bibata-cursor-theme \
-        neofetch \
-        rofi \
-        polybar \
-        python-pywal \
-        inkscape #\
-        #themix-theme-materia-git \
-        #themix-icons-papirus-git \
-        #typora \
-        #chromium \
-        #intellij-idea-ultimate-edition \
-        #webstorm \
-        #pycharm-professional
+    while read -r line; do
+        PACKAGE=$(echo ${line} | cut -d \# -f 1)
+        if [[ ${PACKAGE} ]]; then
+            PACKAGE_LIST+=" ${PACKAGE}"
+        fi
+    done < "$(dirname "$0")/package-list.txt"
+
+    yay -Syyu ${PACKAGE_LIST}
 }
+    
 
 function install_bash_it {
     echo "Installing Bash-It..."
@@ -38,7 +22,6 @@ function install_bash_it {
         echo "Done! Bash-It Installed"
 }
 
-# @Params: $1 = full path to directory to check, must prefix with a forward-slash '/'
 function check_path {
     IFS='/' read -r -a DIRS <<< $1
     # Remove null first element
@@ -74,11 +57,11 @@ function finalize {
 }
 
 if [[ $(uname) == "Linux" ]]; then
-    source $(dirname "$0")/home/.scripts/link.sh
+    #source $(dirname "$0")/home/.scripts/link.sh
     #create_dirs && \
-    #install_packages && \
+    install_packages #&& \
     #install_bash_it && \
-    link_dir $(dirname "$0")/home ~ #&& \
+    #link_dir $(dirname "$0")/home ~ #&& \
     #finalize && \
     #reboot
 elif [[ $(uname) == "Darwin" ]]; then
