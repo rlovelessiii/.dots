@@ -15,7 +15,7 @@ function link {
             # Check to see if found file is currently a syslink
             if ! [[ -L $2/$1 ]]; then
                 echo "Creating backup for $2/$1"
-                mv $2/$1 ~/.backups/.dots/$1
+                mv $2/$1 ${HOME}/.backups/.dots/$1
             fi
         fi
         if ! [[ -L $2/$1 ]]; then
