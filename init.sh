@@ -11,7 +11,15 @@ function create_dirs {
         fi
     done < "$(dirname "$0")/dir-list.txt"
     for DIR in "${DIRS[@]}"; do
-        $(dirname "$0")/home/.scripts/mkpath.sh $DIR
+        PARENT=$( echo ${DIR} | cut -d / -f 1 )
+        DIR=$( echo ${DIR} | cut -d / -f 2- )
+        if [[ ${PARENT} == "\$HOME" ]]; then
+            DIR="${HOME}/${DIR}"
+            $(dirname "$0")/home/.scripts/mkpath.sh ${DIR}
+        elif [[ ${PARENT} == "\$ROOT" ]]; then
+            DIR="/${DIR}"
+            sudo $(dirname "$0")/home/.scripts/mkpath.sh ${DIR}
+        fi
     done
     unset DIRS
 }
