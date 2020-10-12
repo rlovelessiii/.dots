@@ -29,10 +29,8 @@ function create_dirs {
 }
 
 function install_bash_it {
-    echo "Installing Bash-It..."
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it && \
         ~/.bash_it/install.sh --no-modify-config && \
-        echo "Done! Bash-It Installed"
 }
 
 function install_packages {
@@ -45,6 +43,11 @@ function install_packages {
     yay -Syyu ${PACKAGE_LIST}
 }
 
+function link_dots {
+    ${LINK_S} ${DIR_NAME}/home ${HOME}
+    sudo ${LINK_S} ${DIR_NAME}/etc /
+}
+
 function finalize {
     wal -a 70 -i /usr/share/backgrounds/i3_default_background.jpg
 }
@@ -53,8 +56,7 @@ if [[ $(uname) == "Linux" ]]; then
     create_dirs && \
     install_bash_it && \
     install_packages && \
-    ${LINK_S} ${DIR_NAME}/home ${HOME} && \
-    sudo ${LINK_S} ${DIR_NAME}/etc / && \
+    link_dots && \
     finalize && \
     reboot
 elif [[ $(uname) == "Darwin" ]]; then
