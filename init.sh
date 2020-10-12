@@ -3,6 +3,10 @@
 # author: RLovelessIII
 # description: Designed to create Symbolic Links for Unix '.' configuration files
 
+DIR_NAME=$(dirname "$0")
+MKPATH_S=${DIR_NAME}/home/.scripts/mkpath.sh
+LINK_S=${DIR_NAME}/home/.scripts/link.sh
+
 function create_dirs {
     while read -r line; do
         DIR=$(echo ${line} | cut -d \# -f 1)
@@ -15,10 +19,10 @@ function create_dirs {
         DIR=$( echo ${DIR} | cut -d / -f 2- )
         if [[ ${PARENT} == "\$HOME" ]]; then
             DIR="${HOME}/${DIR}"
-            $(dirname "$0")/home/.scripts/mkpath.sh ${DIR}
+            ${MKPATH_S} ${DIR}
         elif [[ ${PARENT} == "\$ROOT" ]]; then
             DIR="/${DIR}"
-            sudo $(dirname "$0")/home/.scripts/mkpath.sh ${DIR}
+            sudo ${MKPATH_S} ${DIR}
         fi
     done
     unset DIRS
@@ -37,7 +41,7 @@ function install_packages {
         if [[ ${PACKAGE} ]]; then
             PACKAGE_LIST+=" ${PACKAGE}"
         fi
-    done < "$(dirname "$0")/package-list.txt"
+    done < "${DIR_NAME}/package-list.txt"
     yay -Syyu ${PACKAGE_LIST}
 }
 
@@ -49,7 +53,8 @@ if [[ $(uname) == "Linux" ]]; then
     create_dirs && \
     install_bash_it && \
     install_packages && \
-    $(dirname "$0")/home/.scripts/link.sh $(dirname "$0")/home ${HOME} && \
+    ${LINK_S} ${DIR_NAME}/home ${HOME} && \
+    sudo ${LINK_S} ${DIR_NAME}/etc / && \
     finalize && \
     reboot
 elif [[ $(uname) == "Darwin" ]]; then
