@@ -4,6 +4,9 @@
 # description: Designed to create Symbolic Links for Unix '.' configuration files
 
 if [[ $(uname) == "Linux" ]]; then
+
+    . $(dirname "$0")/setup_linux.sh
+
     create_dirs && \
     install_bash_it && \
     install_packages && \
