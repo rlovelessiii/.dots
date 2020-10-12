@@ -29,8 +29,8 @@ function create_dirs {
 }
 
 function install_bash_it {
-    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it && \
-        ~/.bash_it/install.sh --no-modify-config && \
+    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+    ~/.bash_it/install.sh --no-modify-config
 }
 
 function install_packages {
