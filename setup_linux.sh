@@ -4,8 +4,8 @@
 # Description: Setup functions for fresh Manjaro-i3 install
 
 DIR_NAME=$(dirname "$0")
+LINK_S=${DIR_NAME}/update_links.sh
 MKPATH_S=${DIR_NAME}/home/.scripts/mkpath.sh
-LINK_S=${DIR_NAME}/home/.scripts/link.sh
 
 WINDOW_TRANSPARENCY=70
 WALLPAPER="/usr/share/backgrounds/i3_default_backgrounds.jpg"
@@ -47,8 +47,7 @@ function install_packages {
 }
 
 function link_dots {
-    ${LINK_S} ${DIR_NAME}/home ${HOME}
-    sudo ${LINK_S} ${DIR_NAME}/etc /
+    ${LINK_S}
 }
 
 function finalize {
