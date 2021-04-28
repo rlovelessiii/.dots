@@ -1,65 +1,65 @@
 " Plug-ins
 
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+"if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+"    silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
+"        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+"    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+"endif
 
-call plug#begin('~/.vim/plugins')
+"call plug#begin('~/.vim/plugins')
 
 " --- Plug-in List ---
 
 " Color-scheme / Appearance
-Plug 'dylanaraps/wal.vim'
-Plug 'yggdroot/indentline'
+"Plug 'dylanaraps/wal.vim'
+"Plug 'yggdroot/indentline'
 
 " Git (VCSC)
-Plug 'tpope/vim-fugitive'
-Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
+"Plug 'tpope/vim-fugitive'
+"Plug 'xuyuanp/nerdtree-git-plugin'
+"Plug 'airblade/vim-gitgutter'
 
 " Syntax / Linting
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 
 " Code Completion
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdcommenter'
+"Plug 'jiangmiao/auto-pairs'
+"Plug 'tpope/vim-surround'
+"Plug 'preservim/nerdcommenter'
 
 " File Tree
-Plug 'preservim/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+"Plug 'preservim/nerdtree'
+"Plug 'jistr/vim-nerdtree-tabs'
 
 " Status-line
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 
 " Undo History
-Plug 'mbbill/undotree'
+"Plug 'mbbill/undotree'
 
 " HTML
-Plug 'mattn/emmet-vim'
-Plug 'othree/html5.vim'
+"Plug 'mattn/emmet-vim'
+"Plug 'othree/html5.vim'
 
 " CSS
-Plug 'hail2u/vim-css3-syntax'
-Plug 'ap/vim-css-color'
+"Plug 'hail2u/vim-css3-syntax'
+"Plug 'ap/vim-css-color'
 
 " Javascript
-Plug 'pangloss/vim-javascript'
+"Plug 'pangloss/vim-javascript'
 
 " Typescript
-Plug 'leafgarland/typescript-vim'
+"Plug 'leafgarland/typescript-vim'
 
 " Markdown (.md)
 "Plug 'gabrielelana/vim-markdown'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
 " Dev Icons - Need to be loaded in last
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 
 " Plug list end
-call plug#end()
+"call plug#end()
 
 " Mapleader
 let mapleader=","
@@ -131,24 +131,24 @@ set mouse=a
 " --- Plug-ins ---
 
 " IndentLine
-let g:indentLine_setColors=0
-let g:indentLine_char = '▏'
+"let g:indentLine_setColors=0
+"let g:indentLine_char = '▏'
 
 " NERDTree
-let g:nerdtree_tabs_open_on_console_startup=1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "",
-    \ "Staged"    : "",
-    \ "Untracked" : "",
-    \ "Renamed"   : "",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "",
-    \ "Dirty"     : "",
-    \ "Clean"     : "",
-    \ 'Ignored'   : '',
-    \ "Unknown"   : ""
-    \ }
+"let g:nerdtree_tabs_open_on_console_startup=1
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"let g:NERDTreeIndicatorMapCustom = {
+"    \ "Modified"  : "",
+"    \ "Staged"    : "",
+"    \ "Untracked" : "",
+"    \ "Renamed"   : "",
+"    \ "Unmerged"  : "═",
+"    \ "Deleted"   : "",
+"    \ "Dirty"     : "",
+"    \ "Clean"     : "",
+"    \ 'Ignored'   : '',
+"    \ "Unknown"   : ""
+"    \ }
 
 " Emmet
-let g:user_emmet_leader_key=','
+"let g:user_emmet_leader_key=','

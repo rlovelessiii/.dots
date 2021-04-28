@@ -1,3 +1,5 @@
 [user]
-	name = rlovelessiii
+	name = Richard C. Loveless III
 	email = richardlovelessiii@gmail.com
+[init]
+	defaultBranch = main

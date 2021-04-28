@@ -3,8 +3,6 @@
 # Author: Richard Loveless III (rlovelessiii)
 # Description: Script to automate linking and backing up config files in order to keep everything under version control.
 
-MKPATH_S=$(dirname "$0")/mkpath.sh
-
 # @Params: $1 = Current File/Dir Name $2 = Path to symbolic link
 # Recursive function to evaluate the contents of the given directory.
 # File vs Directory
@@ -25,8 +23,8 @@ function link {
             ln -s $(pwd)/$1 $2/$1
         fi
     elif [[ -d $1 ]]; then
-        ${MKPATH_S} $2/$1
-        ${MKPATH_S} $3/$1
+        mkdir -p $2/$1
+        mkdir -p $3/$1
         # Iterate over the conents of the directory to call itself,
         #   using the current ${ITEM} for arg $1 and concatenating the file path for arg $2
         cd $1

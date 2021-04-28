@@ -1,37 +1,47 @@
-#
-# ~/.bashrc
-#
+# .bashrc
 
-# Pywal Color-Scheme
-(cat ~/.cache/wal/sequences &)
+# Source global definitions
+[[ -f /etc/bashrc ]] && . /etc/bashrc
 
-[[ $- != *i* ]] && return
-xhost +local:root > /dev/null 2>&1
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
 
 shopt -s checkwinsize
 shopt -s histappend
 
-ex ()
+#################################################
+####            Custom  Functions            ####
+#################################################
+
+ex()
 {
-  if [ -f $1 ] ; then
+  if [ -f $1 ]; then
     case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
+      *.tar.bz2)  tar xjf $1    ;;
+      *.tar.gz)   tar xzf $1    ;;
+      *.bz2)      bunzip2 $1    ;;
+      *.rar)      unrar x $1    ;;
+      *.gz)       gunzip $1     ;;
+      *.tar)      tar xf $1     ;;
+      *.tbz2)     tar xjf $1    ;;
+      *.tgz)      tar xzf $1    ;;
+      *.zip)      unzip $1      ;;
+      *.Z)        uncompress $1 ;;
+      *.7z)       7z x $1       ;;
+      *)          echo "'$1' annot be extracted via ex()" ;;
     esac
   else
     echo "'$1' is not a valid file"
   fi
 }
+
+#################################################
+####          Bash-It Configuration          ####
+#################################################
 
 # If not running interactively, don't do anything
 case $- in
@@ -51,6 +61,10 @@ export BASH_IT_THEME='rlovelessiii'
 # cloned bash-it with a remote other than origin such as `bash-it`.
 # export BASH_IT_REMOTE='bash-it'
 
+# (Advanced): Change this to the name of the main development branch if
+# you renamed it or if it was changed for some reason
+# export BASH_IT_DEVELOPMENT_BRANCH='master'
+
 # Your place for hosting Git repos. I use this for private repos.
 export GIT_HOSTING='git@git.domain.com'
 
@@ -65,9 +79,22 @@ export TODO="t"
 
 # Set this to false to turn off version control status checking within the prompt for all themes
 export SCM_CHECK=true
-# Set to actual location of gitstatus directory if installed
-#export SCM_GIT_GITSTATUS_DIR="$HOME/gitstatus"
-# per default gitstatus uses 2 times as many threads as CPU cores, you can change this here if you must
-#export GITSTATUS_NUM_THREADS=8
 
+# Load Bash It
 source "$BASH_IT"/bash_it.sh
+
+#################################################
+####          SDK-Man Configuration          ####
+#################################################
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/rlovelessiii/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && . "$HOME/.sdkman/bin/sdkman-init.sh"
+
+#################################################
+####            NVM Configuration            ####
+#################################################
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

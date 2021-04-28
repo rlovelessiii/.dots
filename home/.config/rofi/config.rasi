@@ -1,6 +1,0 @@
-configuration {
-	width: -50;
-	lines: 5;
-	font: "CaskaydiaCove Nerd Font 10";
-	theme: "~/.cache/wal/colors-rofi-dark";
-}
