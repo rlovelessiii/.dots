@@ -2,7 +2,7 @@
 
 # Author: Richard C. Loveless III (rlovelessiii)
 
-CONF_DIR="$(dirname "$0")/config/"
+CONF_DIR="$(pwd)/../config/"
 
 echo "Creating Directories..."
 
