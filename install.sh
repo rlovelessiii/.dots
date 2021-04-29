@@ -16,5 +16,6 @@ if [[ $(uname) == "Linux" ]]; then
 	    . install_snap_packages.sh && \
 	    . install_snap_classic_packages.sh && \
 	    . install_docker.sh
+	    . link_dotfiles.sh "../dotfiles/home" $HOME
     fi
 fi
