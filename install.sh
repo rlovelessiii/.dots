@@ -14,8 +14,8 @@ if [[ $(uname) == "Linux" ]]; then
 	    . install_nvm.sh && \
 	    . install_dnf_packages.sh && \
 	    . install_snap_packages.sh && \
-	    . install_snap_classic_packages.sh && \
 	    . install_docker.sh && \
-	    . link_dotfiles.sh "../dotfiles/home" $HOME
+	    . link_dotfiles.sh "../dotfiles/home" $HOME && \
+	    reboot
     fi
 fi
