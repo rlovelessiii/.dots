@@ -4,4 +4,4 @@
 
 echo "Installing SDK-Man..."
 
-curl -s "https://get.sdkman.io" | bash &>/dev/null &
+curl -s "https://get.sdkman.io" | bash

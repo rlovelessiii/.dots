@@ -14,12 +14,12 @@ sudo dnf remove -y docker \
                   docker-logrotate \
                   docker-selinux \
                   docker-engine-selinux \
-                  docker-engine &>/dev/null &
+                  docker-engine
 
-sudo dnf install -y dnf-plugins-core &>/dev/null &
+sudo dnf install -y dnf-plugins-core
 
 sudo dnf config-manager \
     --add-repo \
-    https://download.docker.com/linux/fedora/docker-ce.repo &>/dev/null &
+    https://download.docker.com/linux/fedora/docker-ce.repo
 
-sudo dnf install -y docker-ce docker-ce-cli containerd.io &>/dev/null &
+sudo dnf install -y docker-ce docker-ce-cli containerd.io

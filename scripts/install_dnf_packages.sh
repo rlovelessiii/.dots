@@ -13,7 +13,7 @@ while read -r line; do
 	fi
 done < "${CONF_DIR}/dnf_packages"
 
-sudo dnf update -y &>/dev/null &
-sudo dnf install -y ${PACKAGE_LIST} &>/dev/null &
+sudo dnf update -y
+sudo dnf install -y ${PACKAGE_LIST}
 
 unset CONF_DIR PACKAGE PACKAGE_LIST
