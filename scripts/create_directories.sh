@@ -11,7 +11,7 @@ while read -r line; do
 	fi
 done < "${CONF_DIR}/directories"
 
-for DIR "${DIRS[@]}"; do
+for DIR in "${DIRS[@]}"; do
 	PARENT=$( echo ${DIR} | cut -d / -f 1 )
 	CHILD=$( echo ${DIR} | cut -d / -f 2- )
 	if [[ ${PARENT} == "\$HOME" ]]; then
