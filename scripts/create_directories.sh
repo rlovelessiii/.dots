@@ -4,6 +4,8 @@
 
 CONF_DIR="$(dirname "$0")/../config/"
 
+echo "Creating Directories..."
+
 while read -r line; do
 	DIR=$(echo ${line} | cut -d \# -f 1)
 	if [[ ${DIR} ]]; then

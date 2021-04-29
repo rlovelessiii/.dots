@@ -4,6 +4,7 @@
 
 CONF_DIR="$(dirname "$0")/../config"
 
+echo "Installing Snap Packages..."
 while read -r line; do
 	PACKAGE=$(echo ${line} | cut -d \# -f 1)
 	if [[ ${PACKAGE} ]]; then

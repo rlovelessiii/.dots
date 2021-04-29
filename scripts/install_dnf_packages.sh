@@ -4,6 +4,8 @@
 
 CONF_DIR="$(dirname "$0")/../config"
 
+echo "Installing DNF Packages"
+
 while read -r line; do
 	PACKAGE=$(echo ${line} | cut -d \# -f 1)
 	if [[ ${PACKAGE} ]]; then
@@ -11,7 +13,7 @@ while read -r line; do
 	fi
 done < "${CONF_DIR}/dnf_packages"
 
-sudo dnf update -y
-sudo dnf install -y ${PACKAGE_LIST}
+sudo dnf update -y &>/dev/null &
+sudo dnf install -y ${PACKAGE_LIST} &>/dev/null &
 
 unset CONF_DIR PACKAGE PACKAGE_LIST

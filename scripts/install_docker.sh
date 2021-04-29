@@ -3,6 +3,8 @@
 # Author: Richard C. Loveless III (rlovelessiii)
 # Commands pulled from https://docs.docker.com/engine/install/fedora/
 
+echo "Installing Docker..."
+
 sudo dnf remove -y docker \
                   docker-client \
                   docker-client-latest \
