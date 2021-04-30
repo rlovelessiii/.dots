@@ -8,6 +8,7 @@ function link {
 		# Check if output location is a file
 		if [[ -f "${2}/${1}" ]]; then
 			echo "Creating backup for ${2}/${1}"
+			mkdir -p ${3}/${1}
 			mv "${2}/${1}" "${3}/${1}.bak"
 		fi
 		# Confirm output location is not a current symlink
@@ -17,8 +18,6 @@ function link {
 		fi
 	elif [[ -d ${1} ]]; then
 		mkdir -p ${2}/${1}
-		mkdir -p ${3}/${1}
-
 		cd ${1}
 		for content in *; do
 			link $content ${2}/${1} ${3}/${1}
