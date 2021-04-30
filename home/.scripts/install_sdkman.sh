@@ -5,3 +5,5 @@
 echo "Installing SDK-Man..."
 
 curl -s "https://get.sdkman.io" | bash
+
+echo "Installing SDK-Man...Finished!"

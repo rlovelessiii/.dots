@@ -2,7 +2,7 @@
 
 # Author: Richard C. Loveless III (rlovelessiii)
 
-CONF_DIR="$(pwd)/../config/"
+CONF_DIR="$(dirname "$0")/config/"
 
 echo "Creating Directories..."
 
@@ -24,3 +24,5 @@ for DIR in "${DIRS[@]}"; do
 done
 
 unset CONF_DIR DIR DIRS
+
+echo "Creating Directories...Finished!"

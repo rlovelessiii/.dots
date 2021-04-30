@@ -2,14 +2,12 @@
 
 # Author: Richard C. Loveless III (rlovelessiii)
 
+echo "Installing Snap Packages..."
+
 CONF_DIR="$(pwd)/../config"
 
-echo "Setting Up Classic Snap Support..."
 sudo ln -s /var/lib/snapd/snap /snap
 
-sudo snap install
-
-echo "Installing Snap Packages..."
 while read -r line; do
 	PACKAGE=$(echo ${line} | cut -d \# -f 1)
 	if [[ ${PACKAGE} ]]; then
@@ -19,4 +17,4 @@ done < "${CONF_DIR}/snap_packages"
 
 unset CONF_DIR PACKAGE
 
-
+echo "Installing Snap Packages...Finished!"
