@@ -2,7 +2,7 @@
 
 # Author: Richard C. Loveless III (rlovelessiii)
 
-CONF_DIR="$(dirname "$0)/setup_scripts/config/"
+CONF_DIR="$(dirname "$0")/setup_scripts/config"
 
 echo "Creating Directories..."
 
