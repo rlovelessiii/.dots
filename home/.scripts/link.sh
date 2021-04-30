@@ -46,4 +46,4 @@ for child in *; do
 	link ${child} ${SYMLINK} ${BACKUP_DIR}
 done
 
-echo "...${PARENT_DIR} directory complete!"
+echo "Linking ${PARENT_DIR} directory...Finished!"
