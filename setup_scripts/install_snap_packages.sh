@@ -4,7 +4,7 @@
 
 echo "Installing Snap Packages..."
 
-CONF_DIR="$(pwd)/../config"
+CONF_DIR="./config"
 
 sudo ln -s /var/lib/snapd/snap /snap
 

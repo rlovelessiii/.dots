@@ -4,7 +4,7 @@
 
 echo "Installing DNF Packages..."
 
-CONF_DIR="$(dirname "$0")/config"
+CONF_DIR="./config"
 
 while read -r line; do
 	PACKAGE=$(echo ${line} | cut -d \# -f 1)
