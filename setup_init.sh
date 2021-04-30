@@ -13,11 +13,6 @@ SCRIPT_DIR="$(dirname "$0")/setup_scripts"
 . ${SCRIPT_DIR}/setup_nvm.sh && \
 
 echo "Dotfiles Setup Initialized...Finished!"
-
-printf "Would you like to reboot now? [y/n]: "
-read reboot?
-if [[ reboot? ]]; then
-	reboot
-fi
+printf "Please reboot device and run the \"setup_final.sh\" script to finished setting up this machine."
 
 unset SCRIPT_DIR
