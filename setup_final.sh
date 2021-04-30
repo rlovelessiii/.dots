@@ -1,4 +1,4 @@
-#!/user/bin/env bash
+#!/usr/bin/env bash
 
 # Author: Richard C. Loveless III (rlovelessiii)
 
