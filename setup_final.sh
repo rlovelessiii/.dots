@@ -4,11 +4,14 @@
 
 echo "Dotfiles Setup Being Finalized..."
 
-SCRIPT_DIR="$(dirname "$0")/setup_scripts/"
+DIR_NAME=$(dirname "$0")
+SCRIPT_DIR="${DIR_NAME}/setup_scripts/"
 
 ${SCRIPT_DIR}/install_snap_packages.sh && \
 ${SCRIPT_DIR}/setup_directories.sh && \
-$(dirname "$0")/update_links && \
+${DIR_NAME}/update_links.sh && \
+
+unset DIR_NAME SCRIPT_DIR
 
 echo "Dotfiles Setup Being Finalized...Done!"
 
