@@ -3,6 +3,8 @@
 # Author: Richard C. Loveless III (rlovelessiii)
 # Commands pulled from https://docs.docker.com/engine/install/fedora/
 
+echo "Setting Up Docker..."
+
 if ! [[ $(command -v docker) ]]; then
     echo "Removing old Docker packages..."
     sudo dnf remove -y docker \
@@ -37,4 +39,6 @@ if ! [[ $(command -v docker) ]]; then
 else
     echo "Docker is already installed."
 fi
+
+echo "Setting Up Docker...Done!"
 
