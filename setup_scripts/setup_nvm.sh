@@ -8,4 +8,5 @@ git clone https://github.com/nvm-sh/nvm.git ~/.nvm_sh
 
 ~/.nvm_sh/install.sh
 
-echo "Installing NVM...Finished!"
+echo "Installing NVM...Done!"
+

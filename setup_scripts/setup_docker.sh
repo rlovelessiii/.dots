@@ -26,4 +26,5 @@ sudo dnf install -y docker-ce docker-ce-cli containerd.io
 
 sudo usermod -aG docker $(whoami)
 
-echo "Installing Docker...Finished!"
+echo "Installing Docker...Done!"
+

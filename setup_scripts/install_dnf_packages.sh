@@ -4,7 +4,7 @@
 
 echo "Installing DNF Packages..."
 
-CONF_DIR="$(dirname "$0")/setup_scripts/config"
+CONF_DIR="$(dirname "$0")/config"
 
 while read -r line; do
 	PACKAGE=$(echo ${line} | cut -d \# -f 1)
@@ -18,4 +18,5 @@ sudo dnf install -y ${PACKAGE_LIST}
 
 unset CONF_DIR PACKAGE PACKAGE_LIST
 
-echo "Installing DNF Packages...Finished!"
+echo "Installing DNF Packages...Done!"
+

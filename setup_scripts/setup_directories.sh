@@ -2,7 +2,7 @@
 
 # Author: Richard C. Loveless III (rlovelessiii)
 
-CONF_DIR="$(dirname "$0")/setup_scripts/config"
+CONF_DIR="$(dirname "$0")/config"
 
 echo "Creating Directories..."
 
@@ -25,4 +25,5 @@ done
 
 unset CONF_DIR DIR DIRS
 
-echo "Creating Directories...Finished!"
+echo "Creating Directories...Done!"
+

@@ -4,7 +4,7 @@
 
 echo "Installing Snap Packages..."
 
-CONF_DIR="$(dirname "$0")/setup_scripts/config"
+CONF_DIR="$(dirname "$0")/config"
 
 snap --version && \
 sudo ln -s /var/lib/snapd/snap /snap && \
@@ -18,4 +18,6 @@ done < "${CONF_DIR}/snap_packages"
 
 unset CONF_DIR PACKAGE
 
-echo "Installing Snap Packages...Finished!"
+echo "Installing Snap Packages...Done!"
+
+

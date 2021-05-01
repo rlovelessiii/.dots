@@ -44,4 +44,5 @@ for child in *; do
 	link ${child} ${SYM_LINK}
 done
 
-echo "Linking ${PARENT_DIR} directory...Finished!"
+echo "Linking ${PARENT_DIR} directory...Done!"
+

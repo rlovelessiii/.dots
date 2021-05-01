@@ -4,7 +4,7 @@
 
 echo "Updating Symbolic Links..."
 
-LINK_SCRIPT="$(dirname "$0")/home/.scripts/link.sh"
+LINK_SCRIPT="$(dirname "$0")/home/.scripts/link_directories.sh"
 
 ${LINK_SCRIPT} "$(dirname "$0")/home" $HOME
 
