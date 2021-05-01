@@ -2,9 +2,7 @@
 
 # Author: Richard C. Loveless III (rlovelessiii)
 
-echo "Installing SDK-Man..."
-
+echo "Downloading SDK-Man..."
 curl -s "https://get.sdkman.io" | bash
-
-echo "Installing SDK-Man...Done!"
+echo "Downloading SDK-Man...Done!"
 

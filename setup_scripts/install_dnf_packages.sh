@@ -2,9 +2,11 @@
 
 # Author: Richard C. Loveless III (rlovelessiii)
 
-echo "Installing DNF Packages..."
-
 CONF_DIR="$(dirname "$0")/config"
+
+echo "Updating DNF..."
+sudo dnf update -y
+echo "Updating DNF...Done!"
 
 while read -r line; do
 	PACKAGE=$(echo ${line} | cut -d \# -f 1)
@@ -13,9 +15,8 @@ while read -r line; do
 	fi
 done < "${CONF_DIR}/dnf_packages"
 
-sudo dnf update -y && \
+echo "Installing DNF Packages..."
 sudo dnf install -y ${PACKAGE_LIST}
-
 echo "Installing DNF Packages...Done!"
 
 unset CONF_DIR PACKAGE PACKAGE_LIST

@@ -33,16 +33,14 @@ function link {
 PARENT_DIR=${1}
 SYM_LINK=${2}
 
-echo "Linking ${PARENT_DIR} directory..."
-
 # Allow '*' to lnclude '.' files
 shopt -s dotglob
 
 cd ${PARENT_DIR}
 
+echo "Linking ${PARENT_DIR} directory..."
 for child in *; do
 	link ${child} ${SYM_LINK}
 done
-
 echo "Linking ${PARENT_DIR} directory...Done!"
 

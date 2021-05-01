@@ -4,7 +4,7 @@
 
 CONF_DIR="$(dirname "$0")/config"
 
-echo "Creating Directories..."
+echo "Setting Up Directories..."
 
 while read -r line; do
 	DIR=$(echo ${line} | cut -d \# -f 1)
@@ -23,7 +23,7 @@ for DIR in "${DIRS[@]}"; do
 	fi
 done
 
-echo "Creating Directories...Done!"
+echo "Setting Up Directories...Done!"
 
 unset CONF_DIR DIR DIRS
 
