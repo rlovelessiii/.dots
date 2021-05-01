@@ -26,6 +26,8 @@ if ! [[ $(command -v docker) ]]; then
     sudo dnf install -y docker-ce docker-ce-cli containerd.io
 
     sudo usermod -aG docker $(whoami)
+else
+    echo "Docker is already installed."
 fi
 
 echo "Installing Docker...Done!"
