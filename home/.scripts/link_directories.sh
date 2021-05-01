@@ -5,16 +5,17 @@
 function link {
 	# Check if input is a file or a directory
 	if [[ -f "${1}" ]]; then
-		file_path="${2}/${1}"
-		# Check if output location is a file
-		if [[ -f ${file_path} ]]; then
-			echo "Creating backup for ${file_path}"
-			mv "${file_path}" "${file_path}.bak"
-		fi
+		symlink_path="${2}/${1}"
 		# Confirm output location is not a current symlink
-		if ! [[ -L "${file_path}" ]]; then
-			echo "Creating symlin for ${file_path}..."
-			ln -s $(pwd)/${1} ${file_path}
+		if ! [[ -L "${symlink_path}" ]]; then
+			# Check if output location is a file
+			if [[ -f ${symlink_path} ]]; then
+				echo "Creating backup for ${symlink_path}"
+				mv "${symlink_path}" "${symlink_path}.bak"
+			else
+				echo "Creating symlin for ${symlink_path}..."
+				ln -s $(pwd)/${1} ${symlink_path}
+			fi
 		fi
 	elif [[ -d ${1} ]]; then
 		mkdir -p ${2}/${1}
