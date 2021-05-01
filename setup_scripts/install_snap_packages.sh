@@ -15,7 +15,6 @@ while read -r line; do
 	if [[ ${PACKAGE} ]]; then
         echo "Installing '${PACKAGE}' Snap Package..."
 		sudo snap install ${PACKAGE} --classic
-        echo "Installing '${PACKAGE}' Snap Package...Done!"
 	fi
 done < "${CONF_DIR}/snap_packages"
 
