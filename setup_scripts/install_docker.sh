@@ -5,26 +5,28 @@
 
 echo "Installing Docker..."
 
-sudo dnf remove -y docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-selinux \
-                  docker-engine-selinux \
-                  docker-engine
+if ! [[ $(command -v docker) ]]; then
+    sudo dnf remove -y docker \
+        docker-client \
+        docker-client-latest \
+        docker-common \
+        docker-latest \
+        docker-latest-logrotate \
+        docker-logrotate \
+        docker-selinux \
+        docker-engine-selinux \
+        docker-engine
 
-sudo dnf install -y dnf-plugins-core
+    sudo dnf install -y dnf-plugins-core
 
-sudo dnf config-manager \
-    --add-repo \
-    https://download.docker.com/linux/fedora/docker-ce.repo
+    sudo dnf config-manager \
+        --add-repo \
+        https://download.docker.com/linux/fedora/docker-ce.repo
 
-sudo dnf install -y docker-ce docker-ce-cli containerd.io
+    sudo dnf install -y docker-ce docker-ce-cli containerd.io
 
-sudo usermod -aG docker $(whoami)
+    sudo usermod -aG docker $(whoami)
+fi
 
 echo "Installing Docker...Done!"
 
