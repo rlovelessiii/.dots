@@ -16,7 +16,7 @@ done < "${CONF_DIR}/dnf_packages"
 sudo dnf update -y && \
 sudo dnf install -y ${PACKAGE_LIST}
 
-unset CONF_DIR PACKAGE PACKAGE_LIST
-
 echo "Installing DNF Packages...Done!"
+
+unset CONF_DIR PACKAGE PACKAGE_LIST
 

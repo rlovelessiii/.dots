@@ -23,7 +23,7 @@ for DIR in "${DIRS[@]}"; do
 	fi
 done
 
-unset CONF_DIR DIR DIRS
-
 echo "Creating Directories...Done!"
+
+unset CONF_DIR DIR DIRS
 

@@ -16,8 +16,7 @@ while read -r line; do
 	fi
 done < "${CONF_DIR}/snap_packages"
 
-unset CONF_DIR PACKAGE
-
 echo "Installing Snap Packages...Done!"
 
+unset CONF_DIR PACKAGE
 
