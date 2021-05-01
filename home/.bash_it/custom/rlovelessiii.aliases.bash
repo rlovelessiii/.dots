@@ -49,8 +49,16 @@ alias gi='git init'
 alias gp='git pull'
 alias gw='git commit -m'
 alias gpu='git push'
+alias gpo='git push origin'
 alias gco='git checkout'
 alias gs='git status'
+
+### systemctl
+alias systemctl='sudo systemctl'
+alias scs='systemctl start'
+alias scstp='systemctl stop'
+alias scena='systemctl enable'
+alias scdis='systemctl disable'
 
 ## Shortcuts
 alias vba='nvim ~/.bash_it/custom/rlovelessiii.aliases.bash'

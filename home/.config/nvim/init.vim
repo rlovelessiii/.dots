@@ -93,7 +93,7 @@ set smarttab
 " --- Editor Appearance ---
 
 " Color-scheme
-colorscheme wal
+"colorscheme wal
 
 " Cursor
 set cursorline
