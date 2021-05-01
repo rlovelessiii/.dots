@@ -2,17 +2,28 @@
 
 # Author: Richard C. Loveless III (rlovelessiii)
 
+DIR_NAME=$(dirname "$0")
+SCRIPT_DIR="${DIR_NAME}/setup_scripts"
+
 echo "Dotfiles Setup Initialized..."
 
-SCRIPT_DIR="$(dirname "$0")/setup_scripts"
+printf "Installing DNF Packages..." && \
+${SCRIPT_DIR}/install_dnf_packages.sh > ${SCRIPT_DIR}/install_dnf_packages.log && \
+echo "Done!" && \
+printf "Installing Docker..." && \
+${SCRIPT_DIR}/install_docker.sh > ${SCRIPT_DIR}/install_docker.log && \
+echo "Done!" && \
+printf "Installing Bash-It..." && \
+${SCRIPT_DIR}/install_bashit.sh > ${SCRIPT_DIR}/install_bashit.log && \
+echo "Done!" && \
+printf "Installing SDK-Man..." && \
+${SCRIPT_DIR}/install_sdkman.sh > ${SCRIPT_DIR}/install_sdkman.log && \
+echo "Done!" && \
+printf "Installing NVM..." && \
+${SCRIPT_DIR}/install_nvm.sh > ${SCRIPT_DIR}/install_nvm.log && \
+echo "Done!" && \
 
-${SCRIPT_DIR}/install_dnf_packages.sh && \
-${SCRIPT_DIR}/setup_docker.sh && \
-${SCRIPT_DIR}/setup_bashit.sh && \
-${SCRIPT_DIR}/setup_sdkman.sh && \
-${SCRIPT_DIR}/setup_nvm.sh && \
-
-echo "Dotfiles Setup Initialized...Finished!"
-echo "Please reboot device and run the \"setup_final.sh\" script to finished setting up this machine."
+echo "Dotfiles Setup Initialized...Done!"
 
 unset SCRIPT_DIR
+
