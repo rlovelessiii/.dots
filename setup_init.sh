@@ -11,7 +11,8 @@ ${SCRIPT_DIR}/setup_sdkman.sh && \
 ${SCRIPT_DIR}/setup_nvm.sh && \
 ${SCRIPT_DIR}/setup_docker.sh && \
 ${SCRIPT_DIR}/install_dnf_packages.sh && \
-echo "Dotfiles Setup Initialized...Done!"
+echo "Complete! Please reboot the machine."
+echo "After rebooter, run the script '${DIR_NAME}/setup_final.sh"
 
 unset SCRIPT_DIR
 
