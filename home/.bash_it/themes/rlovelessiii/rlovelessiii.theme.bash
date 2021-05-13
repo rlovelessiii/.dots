@@ -12,7 +12,11 @@ function prompt_command() {
   prompt_ending_color=${bold_white}
   cmd_color=${bold_white}
   
-  PS1="\n${line_color}╔═${bracket_color}[${username_color}\u${arrow_color} »» ${host_color}\h${bracket_color}]${arrow_color} »» ${bracket_color}[${time_color}\A${bracket_color}]\n${line_color}╠═${bracket_color}(${current_directory_color}\w${bracket_color})$(scm_prompt_info)\n${line_color}║\n${line_color}╚═${bracket_color}[${prompt_ending_color}\$${arrow_color} »» ${cmd_color}"
+  PS1="\n${line_color}╔═${bracket_color}[${username_color}\u${arrow_color} »» ${host_color}\h${bracket_color}]${arrow_color} »» ${bracket_color}[${time_color}\A${bracket_color}]"
+  PS1="${PS1}\n${line_color}╠═${bracket_color}(${current_directory_color}\w${bracket_color})"
+  PS1="${PS1}$(scm_prompt_info)"
+  PS1="${PS1}\n${line_color}║"
+  PS1="${PS1}\n${line_color}╚═${bracket_color}[${prompt_ending_color}\$${arrow_color} »» ${cmd_color}"
 
 }
 
