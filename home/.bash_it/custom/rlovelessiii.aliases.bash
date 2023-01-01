@@ -21,6 +21,7 @@ alias vim='v'
 
 ### dnf
 alias dnf='sudo dnf'
+alias dnr='dnf remove -y'
 alias dns='dnf search'
 alias dni='dnf install -y'
 alias dnu='dnf update -y'
@@ -33,13 +34,17 @@ alias snic='snap install $@ --classic'
 alias snr='snap remove'
 
 ### docker
+alias dcl='docker container list'
 alias dcp='docker container prune'
 alias dip='docker image prune'
 alias dipa='dip -a'
-alias dbuild='docker build -t'
+alias dcs='docker container stop'
+alias dbuild='docker build ./ -t'
+alias drun='docker run -it'
 
 ### docker-compose
-alias dcu='docker-compose up'
+alias dcu='docker-compose up --force-recreate'
+alias dcr='docker-compose run'
 
 ### git
 alias ga='git add'
