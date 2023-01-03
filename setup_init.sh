@@ -9,8 +9,8 @@ echo "Dotfiles Setup Initialized..." && \
 ${SCRIPT_DIR}/setup_bashit.sh && \
 ${SCRIPT_DIR}/setup_sdkman.sh && \
 ${SCRIPT_DIR}/setup_nvm.sh && \
-${SCRIPT_DIR}/setup_docker.sh && \
-${SCRIPT_DIR}/install_dnf_packages.sh && \
+# ${SCRIPT_DIR}/setup_docker.sh && \
+# ${SCRIPT_DIR}/install_dnf_packages.sh && \
 echo "Complete! Please reboot the machine."
 echo "After rebooter, run the script '${DIR_NAME}/setup_final.sh"
 
