@@ -43,7 +43,10 @@ alias gpu='git push origin'
 alias gco='git checkout'
 alias gs='git status'
 
-## Shortcuts
+## shortcuts
 alias vba='nvim ~/.bash_it/custom/rlovelessiii.aliases.bash'
 alias vbt='nvim ~/.bash_it/themes/rlovelessiii/rlovelessiii.theme.bash'
+
+# scripts
+alias pmq_auth='~/StackLeader/scripts/pmq_auth_connect.sh'
 
